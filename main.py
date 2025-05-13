@@ -1,6 +1,5 @@
 import sys
 from PyQt6.QtWidgets import QApplication
-
 #import of views. package
 from views.music_player import MusicPlayer
 
