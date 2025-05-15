@@ -7,7 +7,7 @@ from PyQt6.QtGui import QIcon
 
 #imports of models. package
 from models.library_manager import LibraryManager
-from models.palylist_manager import PlaylistManager
+from models.playlist_manager import PlaylistManager
 from models.player_controls import PlayerControls
 from models.album_info import AlbumInfo
 
@@ -24,8 +24,8 @@ class MusicPlayer(QMainWindow):
         self.media_player.setAudioOutput(self.audio_output)
 
         # Inicialización de clases auxiliares
-        self.library_manager = LibraryManager()
-        self.playlist_manager = PlaylistManager()
+        self.playlist_manager = PlaylistManager()  # Primero crea el PlaylistManager
+        self.library_manager = LibraryManager(self.playlist_manager)
         self.player_controls = PlayerControls(self.media_player, self.audio_output)
         self.album_info = AlbumInfo()
 
